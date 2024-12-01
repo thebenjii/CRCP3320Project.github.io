@@ -48,6 +48,11 @@
             }
         }
 
+     function windowResized() {
+       resizeCanvas(windowWidth, windowHeight);
+       makeStars(stars.length);
+     }
+
  <style>
         body {
             margin: 0;
