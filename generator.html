@@ -3,21 +3,24 @@
 <head>
    <meta charset="UTF-8">
    <title>Night Sky Generator</title>
-
    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
    <script>
-    let stars = [];
+      
+      let stars = [];
+      let planets = [];
 
     function setup() 
     { 
             createCanvas(windowWidth, windowHeight);
             MakeStars(random(100, 501));
+            MakePlanets(random(1, 9));
     }
 
    function draw() 
    {
             background(0); 
             drawStar();
+            drawPlanet();
    }
 
     function MakeStars(iter) 
@@ -45,12 +48,32 @@
                 ellipse(star.x, star.y, star.size);
             }
         }
-/* 
-     function windowResized() {
-       resizeCanvas(windowWidth, windowHeight);
-       makeStars(stars.length);
-     }
-*/
+
+    function makePlanets(iter) 
+    {
+         planets = [];
+         for (let i = 0; i < iter; i++) 
+         {
+            let planet = 
+         {
+             x: random(width),
+             y: random(height), 
+             size: random(5, 15),
+             color: color(random(50, 255), random(50, 255), random(50, 255))
+        };
+            planets.push(planet);
+      }
+    }
+
+    function drawPlanet() 
+    {
+         noStroke();
+         for (let planet of planets) 
+         {
+           fill(planet.color);
+           ellipse(planet.x, planet.y, planet.size);
+         }
+    }  
       
 </script>
 
