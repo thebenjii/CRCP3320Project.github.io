@@ -5,77 +5,75 @@
    <title>Night Sky Generator</title>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
    <script>
-      
-      let stars = [];
+    let stars = [];
       let planets = [];
 
-    function setup() 
-    { 
-            createCanvas(windowWidth, windowHeight);
-            MakeStars(random(100, 501));
-            MakePlanets(random(1, 9));
-    }
-
-   function draw() 
-   {
-            background(0); 
-            drawStar();
-            drawPlanet();
-   }
-
-    function MakeStars(iter) 
-    { 
-            stars = []; 
-            for (let i = 0; i < iter; i++) 
-            {
-                let star = 
-                {
-                    x: random(width),
-                    y: random(height),
-                    size: random(1, 4),
-                    brightness: random(100, 240)
-                };
-                stars.push(star);
-            }
+      function setup() 
+      { 
+          createCanvas(windowWidth, windowHeight);
+          makeStars(random(100, 501));
+          makePlanets(random(1, 9));
       }
 
-     function drawStar() 
-     {
-            noStroke();
-            for (let star of stars) 
-            {
-                fill(star.brightness);
-                ellipse(star.x, star.y, star.size);
-            }
-        }
-
-    function makePlanets(iter) 
-    {
-         planets = [];
-         for (let i = 0; i < iter; i++) 
-         {
-            let planet = 
-         {
-             x: random(width),
-             y: random(height), 
-             size: random(5, 15),
-             color: color(random(50, 255), random(50, 255), random(50, 255))
-        };
-            planets.push(planet);
+      function draw() 
+      {
+          background(0); 
+          drawStars();
+          drawPlanets();
       }
-    }
 
-    function drawPlanet() 
-    {
-         noStroke();
-         for (let planet of planets) 
-         {
-           fill(planet.color);
-           ellipse(planet.x, planet.y, planet.size);
-         }
-    }       
+      function makeStars(iter) 
+      { 
+          stars = []; 
+          for (let i = 0; i < iter; i++) 
+          {
+              let star = 
+              {
+                  x: random(width),
+                  y: random(height),
+                  size: random(1, 4),
+                  brightness: random(100, 240)
+              };
+              stars.push(star);
+          }
+      }
+
+      function drawStars() 
+      {
+          noStroke();
+          for (let star of stars) 
+          {
+              fill(star.brightness);
+              ellipse(star.x, star.y, star.size);
+          }
+      }
+
+      function makePlanets(iter) 
+      {
+          planets = [];
+          for (let i = 0; i < iter; i++) 
+          {
+              let planet = 
+              {
+                  x: random(width),
+                  y: random(height), 
+                  size: random(5, 15),
+                  color: color(random(50, 255), random(50, 255), random(50, 255))
+              };
+              planets.push(planet);
+          }
+      }
+
+      function drawPlanets() 
+      {
+          noStroke();
+          for (let planet of planets) 
+          {
+              fill(planet.color);
+              ellipse(planet.x, planet.y, planet.size);
+          }
+      }  
 </script>
-
  <style>
         body {
             margin: 0;
