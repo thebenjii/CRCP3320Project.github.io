@@ -73,6 +73,19 @@
               ellipse(planet.x, planet.y, planet.size);
           }
       }  
+
+      function mousehit()
+      {
+        let newplanet ={x: mouseX, y: mouseY, size: random(5,15), color: color(random(50, 255),random(50, 255),random(50, 255))};
+        planets.push(newplanet);
+      }
+
+      function instructions()
+      {
+        fill(255)
+        text("Click screen to add a new planet");
+      }
+      
 </script>
  <style>
         body {
