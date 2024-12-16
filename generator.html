@@ -43,7 +43,8 @@
           noStroke();
           for (let star of stars) 
           {
-              fill(star.brightness);
+            let twinkle = sin(frameCount * 0.05 + star.x * 0.01) * 50;
+              fill(star.brightness + twinkle);
               ellipse(star.x, star.y, star.size);
           }
       }
@@ -74,16 +75,6 @@
           }
       }  
 
-      function drawStars(starsArray)
-      {
-        noStroke();
-        for (let star of starsArray) {
-
-            let twinkle = sin(frameCount * 0.05 + star.x * 0.01) * 50;
-            fill(star.brightness + twinkle);
-            ellipse(star.x, star.y, star.size);
-        }
-      }
 
       function mousePressed()
       {
@@ -94,7 +85,9 @@
       function instructions()
       {
         fill(255)
-        text("Click screen to add a new planet", width/2, height -30);
+        textSize(12);
+        textAlign(CENTER, TOP);
+        text("Click screen to add a new planet", width/2, height +30);
       }
       
 </script>
