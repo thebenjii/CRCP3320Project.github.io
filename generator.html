@@ -74,6 +74,17 @@
           }
       }  
 
+      function drawStars(starsArray)
+      {
+        noStroke();
+        for (let star of starsArray) {
+
+            let twinkle = sin(frameCount * 0.05 + star.x * 0.01) * 50;
+            fill(star.brightness + twinkle);
+            ellipse(star.x, star.y, star.size);
+        }
+      }
+
       function mousePressed()
       {
         let newplanet ={x: mouseX, y: mouseY, size: random(5,15), color: color(random(50, 255),random(50, 255),random(50, 255))};
