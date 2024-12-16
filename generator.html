@@ -43,7 +43,7 @@
           noStroke();
           for (let star of stars) 
           {
-            let twinkle = sin(frameCount * 0.05 + star.x * 0.01) * 50;
+            let twinkle = sin(frameCount * 0.05 + star.x * 0.01) * 50; // Inspiration from ChatGPT to figure out the implementation of the twinkling
               fill(star.brightness + twinkle);
               ellipse(star.x, star.y, star.size);
           }
